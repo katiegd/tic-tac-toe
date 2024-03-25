@@ -1,9 +1,9 @@
-function Gameboard = {
-    const rows = 3;
-    const columns = 3; 
-    const board = [];
-}();
+function Gameboard() {
+  const rows = 3;
+  const columns = 3;
+  const board = [];
+}
 
-//  test test 
+//  test test
 
 const game = 0;

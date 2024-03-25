@@ -1,5 +1,5 @@
-GameboardObj = {
-  gameBoard: [],
-  userChoice: document.querySelector("#playerX"),
-  computerChoice: document.querySelector("#playerO"),
+function Gameboard = {
+    const rows = 3;
+    const columns = 3; 
+    const board = [];
 }();

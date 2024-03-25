@@ -9,23 +9,12 @@
   <body>
     <div class="main">
       <h1>Tic-Tac-Toe</h1>
-      <div class="buttons">
-        Select your player:
-        <button id="playerX">X</button>
-        <button id="playerO">O</button>
-      </div>
-      <div class="game">
-        <div class="game-grid X">X</div>
-        <div class="game-grid X">X</div>
-        <div class="game-grid X">X</div>
-        <div class="game-grid O">O</div>
-        <div class="game-grid X">X</div>
-        <div class="game-grid O">O</div>
-        <div class="game-grid O">O</div>
-        <div class="game-grid O">O</div>
-        <div class="game-grid empty"></div>
-      </div>
+      <button class="startButton">Start</button>
+      <button class="resetButton">Reset</button>
+      <div class="board" id="board"></div>
+      <div id="messageModal" class="modal"></div>
     </div>
+
     <script src="./script.js"></script>
   </body>
 </html>

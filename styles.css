@@ -1,8 +1,15 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
+
 * {
   font-family: Raleway;
+  font-optical-sizing: auto;
   font-weight: 900;
   color: #3e3b38;
   margin: 0;
+}
+
+h1 {
+  font-size: 5rem;
 }
 
 .main {
@@ -21,21 +28,23 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 1px;
+  gap: 2px;
 }
 .square {
+  background-color: hsl(30, 5%, 23%);
   font-size: 5rem;
   color: #d65a47;
   display: flex;
   justify-content: center;
   align-items: center;
   border: 1px solid black;
+  border-radius: 5px;
   width: 100px;
   height: 100px;
 }
 
 .square:hover {
-  background-color: beige;
+  background-color: hsl(30, 5%, 35%);
   cursor: pointer;
 }
 

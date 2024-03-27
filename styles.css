@@ -10,7 +10,7 @@
 }
 
 h1 {
-  font-size: 4rem;
+  font-size: 3.5rem;
   letter-spacing: -2px;
   text-underline-offset: 1px;
   text-decoration: underline solid #d65a47;
@@ -50,6 +50,12 @@ h1 {
 .square:hover {
   background-color: hsl(30, 5%, 30%);
   cursor: pointer;
+}
+
+.winning-square {
+  color: #fff7eb;
+  background-color: #d65a47;
+  border: 1px solid #d65a47;
 }
 
 .messageDisplay {

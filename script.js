@@ -1,11 +1,16 @@
-// const displayController = (() => {
-//   const renderMessage = (message) => {
-//     document.querySelector("#messageModal").innerText = "You lose!";
-//   };
-//   return {
-//     renderMessage,
-//   };
-// })();
+const displayController = (() => {
+  const renderMessage = (message) => {
+    document.querySelector(".messageDisplay").innerText = message;
+  };
+
+  const renderTurn = (message) => {
+    document.querySelector(".turnDisplay").innerText = message;
+  };
+  return {
+    renderMessage,
+    renderTurn,
+  };
+})();
 
 const Gameboard = (() => {
   let gameboard = ["", "", "", "", "", "", "", "", ""];
@@ -36,10 +41,11 @@ const Gameboard = (() => {
   };
 })();
 
-const createPlayer = (name, mark) => {
+const createPlayer = (name, mark, antimark) => {
   return {
     name,
     mark,
+    antimark,
   };
 };
 
@@ -49,7 +55,10 @@ const Game = (() => {
   let gameOver;
 
   const start = () => {
-    players = [createPlayer("Player 1", "X"), createPlayer("Player 2", "O")];
+    players = [
+      createPlayer("Player 1", "X", "O"),
+      createPlayer("Player 2", "O", "X"),
+    ];
     currentPlayerIndex = 0;
     gameOver = false;
     Gameboard.renderBoard();
@@ -57,6 +66,7 @@ const Game = (() => {
     squares.forEach((square) => {
       square.addEventListener("click", handleClick);
     });
+    displayController.renderTurn(`${players[currentPlayerIndex].mark}'s turn.`);
   };
 
   const handleClick = (e) => {
@@ -71,12 +81,16 @@ const Game = (() => {
       checkForWin(Gameboard.getGameboard(), players[currentPlayerIndex].mark)
     ) {
       gameOver = true;
-      alert("You win!");
+      displayController.renderMessage(
+        `${players[currentPlayerIndex].mark} wins!`
+      );
     } else if (checkForTie(Gameboard.getGameboard())) {
       gameOver = true;
-      alert("It is a tie.");
+      displayController.renderMessage("It's a tie!");
     }
-
+    displayController.renderTurn(
+      `${players[currentPlayerIndex].antimark}'s turn.`
+    );
     currentPlayerIndex = currentPlayerIndex === 0 ? 1 : 0;
   };
 
@@ -85,7 +99,9 @@ const Game = (() => {
       Gameboard.update(i, "");
     }
     currentPlayerIndex = 0;
-    Gameboard.renderBoard();
+    displayController.renderMessage("");
+    Game.start();
+    displayController.renderTurn("");
   };
 
   return {
